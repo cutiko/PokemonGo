@@ -15,6 +15,8 @@ The repo will be missing the google-service.json that is all you need, the depen
 The repo will be missing the Google Maps key, the simpliest way to get one is to create a MapActivity, maybe you will have to do it in other Android project.
 Once the MapActivity is created follow the instructions in the created .xml files so you can get a key
 
+Inside the raw folder you can find a file that can be loaded by the emulator to simulate the location changes
+
 ### Functions
 This the [functions repo](https://github.com/cutiko/pokemongo-firebase). Read more about setting up Functions there.
 
