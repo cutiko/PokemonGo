@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (locations.size() > 0) {
                     //TODO update ui with the location check slides
                     //TODO get the near by pokestops check slides
-                    //new NearPokeStops(this).execute(latitude, longitude);
+                    //new NearPokeStops(MainActivity.this).execute(latitude, longitude);
                 }
             }
         };
