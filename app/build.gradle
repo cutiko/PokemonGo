@@ -36,6 +36,10 @@ dependencies {
     implementation "com.android.support:customtabs:$appCompatLibs"
     implementation "com.android.support:cardview-v7:$appCompatLibs"
     implementation "com.google.android.gms:play-services-maps:$firebaseLibs"
+    implementation "com.google.firebase:firebase-firestore:$firebaseLibs"
+    implementation "com.google.firebase:firebase-database:$firebaseLibs"
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
