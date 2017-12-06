@@ -1,4 +1,4 @@
-package cl.cutiko.pokemongo;
+package cl.cutiko.pokemongo.views.main;
 
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
@@ -22,7 +22,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+import cl.cutiko.pokemongo.R;
+import cl.cutiko.pokemongo.models.PokeStop;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, PokestopsCallback {
 
     private static final int RC_GEO_PERMISSIONS = 456;
     private GoogleMap mGoogleMap;
@@ -70,9 +73,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (locations.size() > 0) {
                     Location location = locations.get(0);
                     mGoogleMap.clear();
-                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    double latitude = location.getLatitude();
+                    double longitude = location.getLongitude();
+                    LatLng latLng = new LatLng(latitude, longitude);
                     mGoogleMap.addMarker(new MarkerOptions().position(latLng));
                     mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+                    new NearPokeStops(MainActivity.this).execute(latitude, longitude);
                 }
             }
         };
@@ -87,6 +93,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             positionRequest();
         } else {
             askPermissions();
+        }
+    }
+
+    @Override
+    public void results(List<PokeStop> pokeStops) {
+        for (PokeStop pokeStop : pokeStops) {
+            LatLng latLng = new LatLng(pokeStop.getLatitude(), pokeStop.getLongitude());
+            mGoogleMap.addMarker(new MarkerOptions().position(latLng));
         }
     }
 }

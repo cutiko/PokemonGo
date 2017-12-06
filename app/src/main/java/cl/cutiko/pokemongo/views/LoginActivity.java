@@ -1,4 +1,4 @@
-package cl.cutiko.pokemongo;
+package cl.cutiko.pokemongo.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+
+import cl.cutiko.pokemongo.R;
+import cl.cutiko.pokemongo.views.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
