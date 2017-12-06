@@ -13,14 +13,10 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
@@ -37,9 +33,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //To get familiar with location you should read this https://developer.android.com/training/location/index.html
+        //Dont add every Google Service just the location services https://developers.google.com/android/guides/setup
+        //The easiest way to set up Google maps if to create a Google Maps Activity, create one in another project if you need to, and follow the instructions in google_maps_api
+        //In the raw folder you can find the file to make the gps in emulator simulate movement
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        //TODO SEND THE DATA JUST ONCE, THEN ADD THE GEOPOINT MANUALLY IN THE WEB CONSOLE
+        //FirebaseFirestore.getInstance().collection("pokestops").document("laslilas").set(new PokeStop(-33.4291,-70.594456,"Las Lilas", "laslilas"));
+
+
     }
 
     @SuppressLint("NewApi")
@@ -74,16 +78,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onLocationResult(LocationResult locationResult) {
                 List<Location> locations = locationResult.getLocations();
                 if (locations.size() > 0) {
-                    Location location = locations.get(0);
-                    if (mMarker != null) {
-                        mMarker.remove();
-                    }
-                    double latitude = location.getLatitude();
-                    double longitude = location.getLongitude();
-                    LatLng latLng = new LatLng(latitude, longitude);
-                    mMarker = mGoogleMap.addMarker(new MarkerOptions().position(latLng));
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-                    new NearPokeStops(MainActivity.this).execute(latitude, longitude);
+                    //TODO update ui with the location check slides
+                    //TODO get the near by pokestops check slides
+                    //new NearPokeStops(this).execute(latitude, longitude);
                 }
             }
         };
@@ -103,9 +100,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void results(List<PokeStop> pokeStops) {
-        for (PokeStop pokeStop : pokeStops) {
-            LatLng latLng = new LatLng(pokeStop.getLatitude(), pokeStop.getLongitude());
-            mGoogleMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
-        }
+        //TODO update the UI with the pokestop
     }
 }

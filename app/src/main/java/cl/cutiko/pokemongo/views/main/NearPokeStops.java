@@ -1,8 +1,5 @@
 package cl.cutiko.pokemongo.views.main;
 
-import java.util.List;
-
-import cl.cutiko.pokemongo.models.PokeStop;
 import cl.cutiko.pokemongo.network.FindPokeStop;
 
 /**
@@ -11,16 +8,5 @@ import cl.cutiko.pokemongo.network.FindPokeStop;
 
 public class NearPokeStops extends FindPokeStop {
 
-    private PokestopsCallback callback;
-
-    public NearPokeStops(PokestopsCallback callback) {
-        this.callback = callback;
-    }
-
-    @Override
-    protected void onPostExecute(List<PokeStop> pokeStops) {
-        if (pokeStops.size() > 0) {
-            callback.results(pokeStops);
-        }
-    }
+    //TODO check the slides to complete this class
 }

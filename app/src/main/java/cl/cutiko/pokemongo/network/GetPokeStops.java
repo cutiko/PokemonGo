@@ -13,6 +13,7 @@ import retrofit2.http.Query;
 
 public interface GetPokeStops {
 
+    //This is the retrofit documentation http://square.github.io/retrofit/
     @GET("nearPokestop")
     Call<List<PokeStop>> getNearBy(@Query("uid") String uid, @Query("latitude") double latitude, @Query("longitude") double longitude);
 

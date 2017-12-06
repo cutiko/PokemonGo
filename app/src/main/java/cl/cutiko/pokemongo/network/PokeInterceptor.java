@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PokeInterceptor {
 
+    //You can find several interceptors examples here https://gist.github.com/cutiko/e8b75896ae12aff9fc580f33fb310e7e
     private static final String BASE_URL = "https://us-central1-pokemongo-614b4.cloudfunctions.net/";
 
     public GetPokeStops get() {

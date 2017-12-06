@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 
 import cl.cutiko.pokemongo.R;
@@ -18,6 +17,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //TODO add Firebase to your project
+        //The best way to add Firebase is using the assitant go to Tools/Firebase and follow that wizard
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             goToMain();
@@ -39,10 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signUp(){
-        startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder().build(),
-                RC_SIGN_IN
-        );
+        //TODO check docs https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
     }
 
     private void goToMain(){
