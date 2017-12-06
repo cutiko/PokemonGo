@@ -1,4 +1,4 @@
-##Instructions
+## Instructions
 
 For following the Workshop switch to the `workshop` branch.
 
@@ -6,7 +6,7 @@ Download the [slides in this link](https://www.dropbox.com/s/pcpmcubj65j2prr/Pok
 
 Follow the comments in the code and the slides
 
-###Warnings
+### Warnings
 This is a Functions and Android demo, so it is assume you are familiar with some of the concepts used.
 
  - Location on Android
