@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signUp(){
+        //Dont forget to configure the email login in the firebase web console
         //TODO check docs https://github.com/firebase/FirebaseUI-Android/blob/master/auth/README.md
     }
 
